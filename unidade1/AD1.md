@@ -3,7 +3,7 @@
 
 **Curso:** Eng. Civil <br>
 **Disciplina:** Raciocínio Logico e Algoritmo <br>
-**Código/Turma:**  <br>
+**Código/Turma:** T998-21 <br>
 **Professor:** Ricardo Carubbi <br>
 **Data:** 21/03 <br>
 **Aluno(a):** Eduardo Porfírio Rodrigues Torres <br>
