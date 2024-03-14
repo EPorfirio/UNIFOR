@@ -1,15 +1,16 @@
+
 <img src="https://drive.google.com/uc?id=1SOzRTjUt7cuBJpSqoK90fcAiKBrnpUJo" width="400">
 
-**Curso:** preencha com seus dados <br>
-**Disciplina:** preencha com seus dados <br>
-**Código/Turma:** preencha com seus dados <br>
+**Curso:** Eng. Civil <br>
+**Disciplina:** Raciocínio Logico e Algoritmo <br>
+**Código/Turma:**  <br>
 **Professor:** Ricardo Carubbi <br>
-**Data:** preencha com a data de envio <br>
-**Aluno(a):** preencha com seus dados <br>
-**Matrícula:** preencha com seus dados <br>
+**Data:** 21/03 <br>
+**Aluno(a):** Eduardo Porfírio Rodrigues Torres <br>
+**Matrícula:** 2410592 <br>
 
-**1a chamada (Sim/Não):** preencha com a opção correta <br>
-**2a chamada (Sim/Não):** preencha com a opção correta
+**1a chamada (Sim/Não):** Sim <br>
+**2a chamada (Sim/Não):** Não a
 
 # Avaliação Diagnóstica 1
 
