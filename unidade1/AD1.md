@@ -10,7 +10,7 @@
 **Matrícula:** 2410592 <br>
 
 **1a chamada (Sim/Não):** Sim <br>
-**2a chamada (Sim/Não):** Não a
+**2a chamada (Sim/Não):** Não
 
 # Avaliação Diagnóstica 1
 
@@ -45,22 +45,39 @@ Dadas duas variáveis, $a$ e $b$, implemente e teste um algoritmo para trocar os
 
 ```mermaid
 flowchart TD
-A([INICIO]) --> B([FIM])
+A([INICIO]) --> B{{"Digite o valor de A"}}
+B --> C[/A/]
+C --> D{{"Digite o valor de B"}}
+D --> E[/B/]
+E --> F(Mem = B)
+F --> G(B = A)
+G --> H(A = Mem)
+H --> I{{A, B}}
+I --> J([FIM])
 ```
 
 #### Pseudocódigo (0.5 ponto)
 
 ```
 Algoritmo TrocaValores
+DECLARE A, B, Mem: float
+INICIO
+ESCREVA "Digite o valor de A"
+LEIA A
+ESCREVA "Digite o valor de B"
+LEIA B
+Mem = B
+B = A
+A = Mem
+ESCREVA A, B
 FIM_ALGORITMO
 ```
 
 #### Teste de mesa (0.25 ponto)
 
-| nome_coluna1 | nome_coluna2 | nome_coluna3 | nome_coluna4 | nome_coluna5 | 
-|      --      |      --      |      --      |      --      |      --      | 
-| Adicione     | espaço       | se quiser    |  alinhar     | as barras    |   
-| verticais,   | mas          | não é        | obrigatório. | Entendido ?  |
+| A  | B  | Mem = B | B = A | A = Mem | Saida |
+| -- | -- | -- | -- | -- | -- |
+| 1  | 2  | 2  | 1  | 2  | 2, 1
 
 ### Questão 2 - Contagem (1 ponto)
 
