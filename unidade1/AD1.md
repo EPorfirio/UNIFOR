@@ -60,7 +60,7 @@ I --> J([FIM])
 
 ```
 Algoritmo TrocaValores
-DECLARE A, B, Mem: float
+DECLARE A, B, Mem 
 INICIO
 ESCREVA "Digite o valor de A"
 LEIA A
