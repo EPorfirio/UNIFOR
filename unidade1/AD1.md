@@ -1,15 +1,15 @@
 <img src="https://drive.google.com/uc?id=1SOzRTjUt7cuBJpSqoK90fcAiKBrnpUJo" width="400">
 
 **Curso:** Eng Civil <br>
-**Disciplina:** Raciocinio Lógico e ALgorítimo <br>
+**Disciplina:** Raciocínio lógico e algoritmo <br>
 **Código/Turma:** T998-21 <br>
 **Professor:** Ricardo Carubbi <br>
-**Data:** 21/03 <br>
+**Data:** 03/04 <br>
 **Aluno(a):** Eduardo Porfírio Rodrigues Torres <br>
 **Matrícula:** 2410592 <br>
 
-**1a chamada (Sim/Não):** Sim <br>
-**2a chamada (Sim/Não):** não
+**1a chamada (Sim/Não):** Não <br>
+**2a chamada (Sim/Não):** Sim <br>
 
 # Avaliação Diagnóstica 1
 
@@ -25,7 +25,7 @@ $$AV_1 = AF_1 \times 0,30 + AD_1 \times 0,70$$
 A **AD1** é formada pela entrega dos exercícios (**EX1**) na data prevista e apresentação (**AP1**) de um dos exercícios escolhido pelo professor.
 Segue abaixo a expressão para o cálculo da **AD1**.
 
-$$AD_1 = (EX1_1 + AP_1)/2 $$
+$$AD_1 = (EX_1 + AP_1)/2 $$
 
 A **EX1** é avaliada mediante a **correção dos exercícios**, sendo a avaliação no intervalo de 0% (não atende a questão), 50% (atende parcialmente) e 100% (atende em sua totalidade).
 Por exemplo, se o exercício equivale a 2 pontos e sua correção atente parcialmente a questão, então sua avaliação deste exercício será 1 ponto.
@@ -36,9 +36,12 @@ A avaliação da **AP1** é apenas considerada no intervalo de 0% (não atende o
 Por exemplo, se na apresentação do exercício, o aluno atenter de forma razoável a questão, então sua avaliação da apresentação será 7.5 pontos.
 
 ## Datas
-- Entrega da primeira avaliação formativa (**AF1**) composta pelas listas de exerciícios 1, 2 e 3: 21/03/24
-- Entrega dos exercícios da primeira avaliação diagnóstica (**EX1**): 21/03/24
-- Apresentação da primeira avaliação diagnóstica (**AP1**): 21/03/24
+- Entrega da primeira avaliação formativa (**AF1**) composta pelas listas de exerciícios 1, 2 e 3: 21/03/24 e 22/03/24 apenas para T998 - 08/09.
+- Entrega dos exercícios da primeira avaliação diagnóstica (**EX1**): 21/03/24 e 22/03/24 apenas para T998 - 08/09.
+- Apresentação da primeira avaliação diagnóstica (**AP1**): 21/03/24 e 22/03/24 apenas para T998 - 08/09.
+
+## Observações
+- Não serão admitidas alterações dos exercícios após a entrega do(s) trabalho(s) sob penalização com a anulação dos mesmos.
 
 ## Lista de questões
 
@@ -57,37 +60,58 @@ Dadas duas variáveis, $a$ e $b$, implemente e teste um algoritmo para trocar os
 
 ```mermaid
 flowchart TD
-A([INICIO]) --> B{{"Digite o valor de A"}}
-B --> C[/A/]
-C --> D{{"Digite o valor de B"}}
-D --> E[/B/]
-E --> F(Mem = B)
-F --> G(B = A)
-G --> H(A = Mem)
-H --> I{{A, B}}
-I --> J([FIM])
+A([INICIO]) --> B{{"Digite o valor da a:"}}
+B --> C[\a\]
+C --> D{{"Digite o valor da b:"}}
+D --> E[\b\]
+E --> F[aux = a]
+F --> G[a = b]
+G --> H[b = aux]
+H --> I{{"a =", a}}
+I --> J{{"b =", b}}
 ```
 
 #### Pseudocódigo (1 ponto)
-```
-Algoritmo TrocaValores
-DECLARE A, B, Mem: float
-INICIO
-ESCREVA "Digite o valor de A"
-LEIA A
-ESCREVA "Digite o valor de B"
-LEIA B
-Mem = B
-B = A
-A = Mem
-ESCREVA A, B
-FIM_ALGORITMO
-```
-#### Teste de mesa
 
-| A  | B | Mem = B | B = A | A = Mem | Saida |
-| -- | -- | -- | -- | -- | -- |
-| 1  | 2  | 2  | 1  | 2  | 2, 1
+```java
+ALGORTIMO TrocaValores
+DECLARE a,b,axu: REAL
+
+INICIO
+
+    // Exibe uma mensagem solicitando ao usuário que digite o valor de "a".
+    ESCREVA "Digite o valor da a:"
+
+    // Lê o valor digitado pelo usuário e armazena na variável "a".
+    LEIA a
+
+    // Exibe uma mensagem solicitando ao usuário que digite o valor de "b".
+    ESCREVA "Digite o valor da b:"
+
+    // Lê o valor digitado pelo usuário e armazena na variável "b".
+    LEIA b
+
+    // Armazena o valor de "a" em uma variável auxiliar "aux".
+    aux <- a 
+
+    // Substitui o valor de "a" pelo valor de "b".
+    a <- b
+
+    // Substitui o valor de "b" pelo valor previamente armazenado em "aux".
+    b <- aux
+
+    // Exibe o novo valor de "a" e exibe o novo valor de "b".
+    ESCREVA "a=", a
+    ESCREVA "b=", b
+
+FIM
+```
+
+#### Tabela de testes
+
+| a  | b  | aux | a  | b  | saída 1 | saída 2 | 
+| -- | -- | --  | -- | -- | --      | --      | 
+| 0  | 1  | 0   | 1  | 0  | a = 1   | b = 0   |
 
 ### Questão 2 - Contagem (1 ponto)
 
@@ -108,82 +132,101 @@ Fluxograma conforme descrição do algoritmo acima, usando o loop ENQUANTO.
 
 ```mermaid
 flowchart TD
-A([INICIO])
-A --> C[N_aprov = 0]
-C --> D{{Digite a quanidade de notas para avaliar}}
-D --> E[/N_notas/]
-E --> F{N_notas > 0}
-F --FALSE--> G{{Digite uma quantidade válida}}
-G --> E
-F --TRUE--> H{N_notas = N_ver}
-H --TRUE--> I{{A quantidade de notas aprovadas foi N_aprov}}
-H --FALSE--> J{{Insira a nota}}
-J --> K[/nota/]
-K --> L{nota >= 50 e nota <= 100}
-L --TRUE--> M[N_aprov =+ 1]
-M --> N[N_ver =+ 1]
-L --FALSE--> N
-N --> H
-I --> Z([FIM])
+A([INICIO]) --> B{{Digite o número de alunos: }}
+B --> C[\n\]
+C --> D[\cont = 0\]
+D --> E[\i = 1\]
+E --> F{i <= n}
+F --FALSE--> W{{Número de alunos aprovados: cont}}
+W --> Z([FIM])
+F --TRUE--> G{{Digite a nota do aluno, i}}
+G --> H[\nota\]
+H --> I{"nota >= 50 <br>E <br>nota <=100"}
+I --TRUE--> J[\cont =+ 1\]
+I --FALSE--> K[\i =+ 1\]
+J --> K
+K --LOOP--> F
 ```
+
+#### Fluxograma 02
+Fluxograma opcional usando o loop PARA.
+
+```mermaid
+flowchart TD
+A([INICIO]) --> B{{Digite o número de notas: }}
+B --> C[\n\]
+C --> D[\cont = 0\]
+D --> E[[i=1 ATE n PASSO 1]]
+E --"i=1,2...,n"--> F{{Digite nota, i}}
+E --"i > n"--> K{{Número de alunos aprovados: , cont}}
+K --> L([FIM])
+F --> G[\nota\]
+G --> H{"nota >= 50 <br>E <br>nota <=100"}
+H --FALSE/LOOP--> E
+H --TRUE--> J[\cont =+ 1\]
+J --LOOP--> E
+```
+
 #### Pseudocódigo 01 (1 ponto)
 
-```
-Algoritimo aprovação
-DECLARE N_ver, N_aprov, N_notas, i: Int
-	notas: Float
+```java
+ALGORTIMO ContaAprovacoes
+DECLARE n, cont, nota, i: INTEIRO
+
 INICIO
-N_aprov = 0 
-ESCREVA "Digite a quanidade de notas para avaliar"
-LEIA N_notas
-ENQUANTO N_notas <= 0 REPITA
-	ESCREVA "Digite uma quantidade válida"
-	LEIA N_notas
-PARA N_ver DE 1 ATÉ N_notas FAÇA [PASSO 1]
-	ESCREVA "Insira a nota"
-	LEIA nota
-	SE nota >= 50 E nota <= 100
-		N_aprov =+ 1
-		N_ver =+ 1
-	SENÃO
-		N_ver =+ 1
-	FIM_SE
-FIM_PARA
-ESCREVA "A quantidade de notas aprovadas foi", N_aprov
-FIM_ALGORÍRIMO
+
+    // Exibe uma mensagem solicitando ao usuário que digite a quantidade de notas dos alunos.
+    ESCREVA "Digite a quantidade de notas dos alunos:"
+
+    // Lê a quantidade de notas digitadas pelo usuário e armazena na variável "n".
+    LEIA n
+
+    // Inicializa a variável "cont" com o valor zero para contar o número de alunos aprovados.
+    cont = 0 
+
+    // Inicia um loop de repetição de 1 até "n" para inserir as notas dos alunos.
+    PARA i DE 1 ATE n FAÇA
+
+        // Exibe uma mensagem solicitando ao usuário que digite a nota do aluno "i".
+        ESCREVA "Digite a nota do aluno", i, ":"
+
+        // Lê a nota digitada pelo usuário e armazena na variável "nota".
+        LEIA nota
+
+        // Verifica se a nota está dentro do intervalo de aprovação (entre 50 e 100).
+        SE nota >= 50 E nota <= 100 ENTAO
+
+            // Incrementa o contador de alunos aprovados.
+            cont = cont + 1 
+
+        FIM_SE
+
+    FIM_PARA
+
+    // Exibe o número de alunos aprovados.
+    ESCREVA "O numero de alunos aprovados e:", cont
+
+FIM
 ```
 
-#### Teste de mesa 01
-##### Chat GPT
-| Iteração | Ação                                              | Entrada/Saída  | N_aprov | N_ver |
-|----------|---------------------------------------------------|----------------|---------|-------|
-|         | **Inicialização das Variáveis**                   |                | 0       | 0     |
-|         | **Entrada do Número de Notas**                    | 5              |         |       |
-| 1        | Mensagem: "Insira a nota"                         |                |         |       |
-|          | Entrada: nota                                     | 70             |         |       |
-|          | Condição SE: 70 >= 50 e 70 <= 100 (verdadeiro)   |                |         |       |
-|          |  N_aprov += 1                                    |                | 1       | 1     |
-|          |  N_ver += 1                                      |                |         | 1     |
-| 2        | Mensagem: "Insira a nota"                         |                |         |       |
-|          | Entrada: nota                                     | 30             |         |       |
-|          | Condição SE: 30 >= 50 e 30 <= 100 (falso)        |                |         |       |
-|          |  N_ver += 1                                      |                |         | 2     |
-| 3        | Mensagem: "Insira a nota"                         |                |         |       |
-|          | Entrada: nota                                     | 85             |         |       |
-|          | Condição SE: 85 >= 50 e 85 <= 100 (verdadeiro)   |                |         |       |
-|          |  N_aprov += 1                                    |                | 2       | 3     |
-|          |  N_ver += 1                                      |                |         | 3     |
-| 4        | Mensagem: "Insira a nota"                         |                |         |       |
-|          | Entrada: nota                                     | 95             |         |       |
-|          | Condição SE: 95 >= 50 e 95 <= 100 (verdadeiro)   |                |         |       |
-|          |  N_aprov += 1                                    |                | 3       | 4     |
-|          |  N_ver += 1                                      |                |         | 4     |
-| 5        | Mensagem: "Insira a nota"                         |                |         |       |
-|          | Entrada: nota                                     | 40             |         |       |
-|          | Condição SE: 40 >= 50 e 40 <= 100 (falso)        |                |         |       |
-|          |  N_ver += 1                                      |                |         | 5     |
-| -        | **Saída de Resultados**                           |                |         |       |
-| -        | Mensagem: "A quantidade de notas aprovadas foi 3"|                |         |       |
+#### Tabela de testes 01
+Tabela de testes referente ao algoritmo usando o loop ENQUANTO.
+
+| it | n  | i  | cont | i<=n  | nota, i | nota | nota_valida | cont+1 | i+1 | saída        | 
+| -- | -- | -- | --   | --    | --      | --   | --          | --     | --  | --           |
+| 1  | 3  | 1  |  0   | True  | nota 1  | 60   | True        | 1      | 2   |              |
+| 2  | 3  | 2  |  1   | True  | nota 2  | 40   | False       | 1      | 3   |              |
+| 3  | 3  | 3  |  1   | True  | nota 3  | 90   | True        | 2      | 4   |              |
+| 4  | 3  | 4  |  2   | False |         |      |             |        |     | Aprovados: 2 |
+
+#### Tabela de testes 02
+Tabela de testes referente ao algoritmo usando o loop PARA.
+
+| it | n  | cont | i  | nota, i | nota | nota_valida | cont+1 | saída        | 
+| -- | -- | --   | -- | --      | --   | --          | --     | --           |
+| 1  | 3  | 0    | 1  | nota 1  | 60   | True        | 1      |              |
+| 2  | 3  | 1    | 2  | nota 2  | 40   | False       | 1      |              |
+| 3  | 3  | 1    | 3  | nota 3  | 90   | True        | 2      | Aprovados: 2 |
 
 ### Questão 3 - Soma de um conjunto de números (1 ponto)
 
@@ -203,83 +246,83 @@ Aceite apenas $n$ maior ou igual a zero.
 
 ```mermaid
 flowchart TD
-A([INICIO])
-A --> C[soma = 0]
-C --> D{{Digite o número de elementos do conjunto que você quer somar}}
-D --> E[/num_som/]
-E --> F{num_som > 0}
-F--FALSE--> G{{Digite uma quantidade válida}}
-G --> E
-G --TRUE--> H{num_som = num_somados}
-H --FALSE--> I{{Digite um número}}
-I --> J[/num/]
-J --> K[soma = soma + num]
-K --> L[num_somados =+ 1]
-L --> H
-H --TRUE--> M{{A valor da soma total é soma}}
-M --> N([FIM])
+A([INICIO]) --> B{{"Digite a quantidade de números<br> (n >= 0):"}}
+B --> C[\n\]
+C --> D{n >= 0}
+D --FALSE-->N{{"O valor deve ser maior ou igual a zero!"}}
+N --> M([FIM])
+D --TRUE--> E[/soma = 0/]
+E --> F[i = 1]
+F --> G{i <= n}
+G --FALSE--> L{{"A soma dos numeros é , soma"}}
+L --> M
+G --TRUE--> H{{Digite um número: }}
+H --> I[\num\]
+I --> J[soma =+ num]
+J --> K[i =+ 1]
+K --LOOP--> G
 ```
 
 #### Pseudocódigo (1 ponto)
-```
-Algoritmo soma_de_valores
-DECLARE num_somados, num_soma: Int
-	num, soma: Float
+
+```java
+Algoritmo SomaNumeros
+DECLARE n,i,soma: INTEIRO
+
 INICIO
-soma = 0
-ESCREVA "Digite o número de elementos do conjunto que você quer somar"
-LEIA num_soma
-ENQUANTO num_soma <= 0 FAÇA
-	ESCREVA "Digite uma quantidade válida"
-	LEIA num_soma
-FIM_ENQUANTO
-PARA num_somados DE 1 até Num_soma [PASSO 1] FAÇA
-	ESCREVA "Digite um número"
-	LEIA num
-	soma =+ num
-FIM_PARA
-ESCREVA "O valor da soma total é", soma
-FIM_ALGORITMO
+
+    // Exibe uma mensagem solicitando ao usuário que digite a quantidade de números (n >= 0).
+    ESCREVA "Digite a quantidade de números<br> (n >= 0):"
+    LEIA n
+
+    // Verifica se o valor de "n" é maior ou igual a zero.
+    SE n >=0 ENTAO
+
+        // Inicializa a variável "soma" com o valor zero para armazenar a soma dos números.
+        soma <- 0
+
+        // 
+        i <- i
+
+        // Inicia um loop enquanto "i" for menor ou igual a "n" para ler os números e calcular a soma.
+        ENQUANTO i <= n FAÇA
+
+            // Exibe uma mensagem solicitando ao usuário que digite um número.
+            ESCREVA "Digite um número:"
+
+            // Lê o número digitado pelo usuário e armazena na variável "num".
+            LEIA num 
+
+            // Adiciona o número digitado à variável "soma".
+            soma <- soma + num
+
+            // Incrementa o valor de "i" para avançar para o próximo número.
+            i <- i + 1
+
+        FIM_ENQUANTO
+
+    // Se o valor de "n" não for maior ou igual a zero, exibe uma mensagem de erro.
+    SENAO
+        "O valor deve ser maior ou igual a zero!"
+
+    FIM_SE
+
+    // Exibe a soma dos números.
+    ESCREVA "A soma dos numeros é , soma"
+
+FIM
 ```
 
-#### Teste de mesa
-##### Chat GPT
+#### Tabela de testes
 
-| Iteração | Ação                                              | Entrada/Saída | soma | num_somados |
-|----------|---------------------------------------------------|---------------|------|-------------|
-| -        | **Inicialização das Variáveis**                   |               | 0    | 0           |
-| -        | **Entrada do Número de Elementos a Somar**        | 7             |      |             |
-| 1        | Mensagem: "Digite um número"                      |               |      |             |
-|          | Entrada: num                                      | 0.5           |      |             |
-|          |  soma += num                                     |               | 0.5  |             |
-|          |  num_somados += 1                                |               |      | 1           |
-| 2        | Mensagem: "Digite um número"                      |               |      |             |
-|          | Entrada: num                                      | -1.25         |      |             |
-|          |  soma += num                                     |               | -0.75|             |
-|          |  num_somados += 1                                |               |      | 2           |
-| 3        | Mensagem: "Digite um número"                      |               |      |             |
-|          | Entrada: num                                      | 2.75          |      |             |
-|          |  soma += num                                     |               | 2    |             |
-|          |  num_somados += 1                                |               |      | 3           |
-| 4        | Mensagem: "Digite um número"                      |               |      |             |
-|          | Entrada: num                                      | 0             |      |             |
-|          |  soma += num                                     |               | 2    |             |
-|          |  num_somados += 1                                |               |      | 4           |
-| 5        | Mensagem: "Digite um número"                      |               |      |             |
-|          | Entrada: num                                      | -3.5          |      |             |
-|          |  soma += num                                     |               | -1.5 |             |
-|          |  num_somados += 1                                |               |      | 5           |
-| 6        | Mensagem: "Digite um número"                      |               |      |             |
-|          | Entrada: num                                      | 1.75          |      |             |
-|          |  soma += num                                     |               | 0.25 |             |
-|          |  num_somados += 1                                |               |      | 6           |
-| 7        | Mensagem: "Digite um número"                      |               |      |             |
-|          | Entrada: num                                      | -2.25         |      |             |
-|          |  soma += num                                     |               | -2    |             |
-|          |  num_somados += 1                                |               |      | 7           |
-| -        | **Saída de Resultados**                           |               |      |             |
-| -        | Mensagem: "O valor da soma total é -2"            |               |      |             |
-
+| it | n  | n >= 0 | soma | i  | i <= n | num | soma =+ num  | saída                   |
+| -- | -- | --     | --   | -- | --     | --  | --           | --                      |
+|    | -3 | False  |      |    |        |     |              | O valor deve ser ...    |
+| 1  | 0  | True   | 0    | 1  | False  |     |              | A soma dos números é 0  |
+| 1  | 3  | True   | 0    | 1  | True   | 5   | 0 + 5 = 5    |                         |
+| 2  | 3  | True   | 5    | 2  | True   | 10  | 5 + 10 = 15  |                         |
+| 3  | 3  | True   | 15   | 3  | True   | 20  | 15 + 20 = 35 |                         |
+| 4  | 3  | True   | 35   | 4  | False  |     |              | A soma dos números é 35 |
 
 ### Questão 4 - Cálculo de uma série (1 ponto)
 
@@ -302,61 +345,68 @@ $$ S = \frac{1}{2} + \frac{3}{4} + \frac{5}{6} + \frac{7}{8} + \dots $$
 
 ```mermaid
 flowchart TD
-A([INICIO]) --> B[S = 0]
-B --> D{{Digite a quantidade de termos da série que voce quer somar}}
-D --> E[/Num_termo/]
-E --> F{Num_termo > 0}
-F --FALSE--> G{{Digite uma quantidade válida}}
-G --> E
-F --TRUE--> H{Num_termo = termo}
-H --FALSE--> I[termo =+ 1]
-I --> J["S =+ (2 * termo - 1)/(2 * termo)"]
-J --> H
-H --TRUE--> K{{"O valor da soma de Num_termos termo(s) da série é S"}}
-K --> L([FIM])
+A([INICIO]) --> B{{"Digite o número de termos da série S:"}}
+B --> C[/n/]
+C --> D[S = 0]
+D --> E[[i=0 ATE n-1 PASSO 1]]
+E --"i > n-1"--> J{{"Soma da série S é ", S}}
+J --> K([FIM])
+E --"i=0,1,2,..,n-1"--> F[numerador = 2 * i + 1]
+F --> G[denominador = 2 * i + 2]
+G --> H[termo = numerador / denominador]
+H --> I[S += termo]
+I --LOOP--> E
 ```
 
 #### Pseudocódigo (1 ponto)
 
-```
-Algoritmo soma_da_serie
-DECLARE Num_termo, termo: Int
-	S: Float
+```java
+Algoritmo SomaSerie
+DECLARE n,numerador,denominador: INTEIRO; termo, S: REAL
+
 INICIO
-S = 0
-ESCREVA "Digite a quantidade de termos da série que você quer somar"
-LEIA Num_termo // 3 
-ENQUANTO Num_termo < 0 FAÇA
-	ESCREVA "Digite uma quantidade válida"
-	LEIA Num_termo
-FIM_ENQUANTO
-PARA termo DE 1 ATÉ Num_termo [PASSO 1] FAÇA
-	S =+ (2 * termo - 1)/(2 * termo)
-FIM_PARA
-ESCREVA "O valor da soma de", Num_termo, "termo(s) da série é", S
-FIM_ALGORITMO
+
+    // Exibe uma mensagem solicitando ao usuário que digite o número de termos da série S.
+    ESCREVA "Digite o número de termos da série S:"
+
+    // Lê o número de termos da série S digitado pelo usuário e armazena na variável "n".
+    LEIA n
+
+    // Inicializa a variável "S" com o valor zero para armazenar a soma da série S.
+    S <- 0
+
+    // Inicia um loop de 0 até n-1 para calcular os termos da série S.
+    PARA i de 0 ATÉ n-1 PASSO 1 FAÇA
+
+        // Calcula o numerador do termo atual da série.
+        numerador = 2 * i + 1
+
+        // Calcula o denominador do termo atual da série.
+        denominador <- 2 * i + 2
+
+        // Calcula o termo atual da série.
+        termo = numerador / denominador
+
+        // Adiciona o termo atual à variável "S".
+        S += termo
+
+    FIM_PARA
+
+    // Exibe a soma da série S.
+    ESCREVA "Soma da série S é ", S
+
+FIM
 ```
 
-#### Teste de mesa (0.25 ponto)
-##### Chat GPT
+#### Tabela de testes (0.25 ponto)
 
-| Iteração | Ação                                                 | Entrada/Saída | S     |
-|----------|------------------------------------------------------|---------------|-------|
-| -        | **Inicialização das Variáveis**                      |               | 0     |
-| -        | **Entrada do Número de Termos da Série**            |               |       |
-| 1        | Mensagem: "Digite a quantidade de termos da série"  |               |       |
-|          | Entrada: Num_termo                                   |               | -3    |
-|          |                                                      |               |       |
-| 2        | **Verificação do Número de Termos**                  |               |       |
-|          | Enquanto Num_termo < 0 FAÇA                         |               |       |
-|          |   Mensagem: "Digite uma quantidade válida"          |               |       |
-|          |   Entrada: Num_termo                                 |               |       |
-|          | FIM_ENQUANTO                                        |               |       |
-|          |                                                      |               |       |
-| -        | **Saída de Resultados (Nenhum Cálculo Realizado)**  |               |       |
-| -        | Mensagem: "O valor da soma de -3 termo(s) da série é" |             |       |
-|          |                  0                                   |               |       |
-
+| it | n  | S  | i | numerador | denominador | termo | S += termo     | saída                  |
+| -- | -- | -- |-- | --        | --          | --    | --             | --                     |
+|    | 0  | 0  |   |           |             |       |                |                        |
+| 1  | 4  | 0  | 0 | 2*0+1 = 1 | 2*0+2 = 2   | 1/2   | 0+1/2 = 1/2    |                        |
+| 2  | 4  | 0  | 1 | 2*1+1 = 1 | 2*1+2 = 2   | 3/4   | 1/2+3/4 = 1.25 |                        |
+| 3  | 4  | 0  | 2 | 2*2+1 = 1 | 2*2+2 = 2   | 5/6   | 0+1/2 = 2.08   |                        |
+| 4  | 4  | 0  | 3 | 2*3+1 = 1 | 2*3+2 = 2   | 7/8   | 0+1/2 = 2.96   | Soma da série S é 2.96 |
 
 ### Questão 5 - Cálculo fatorial (2 pontos)
 
@@ -374,102 +424,65 @@ Dado um número $n$, implemente e teste um algoritmo para calcular o fatorial de
 
 ```mermaid
 flowchart TD
-A([INICIO]) --> B[fato = 1]
-B --> R[n_mult = 0]
-R-->C{{Digite o numero do fatorial que voce quer calcular}}
-C --> D[/n/]
-D --> E{n >= 0}
-E --FALSE--> F{{Digite um fatorial válido}}
-F --> D
-E --TRUE--> G{n = n_mult}
-G --FALSE--> H[n_mult =+ 1]
-H --> I[fato = fato * n_mult]
-I --> G
-G --TRUE--> Y{{O valor do fatorial de n é fato}}
-Y --> Z([FIM]) 
+A([INICIO]) --> B{{"Digite um numero inteiro nao-negativo:"}}
+B --> C[/n/]
+C --> D{n >= 0}
+D --TRUE--> E[fator = 1]
+D --FALSE--> J{{"O valor deve ser maior ou igual a zero!"}}
+J --> I([FIM])
+E --> F[[i=1 ATÉ n PASSO 1]]
+F --"i > n"--> H{{O fatorial de, n, é:, fator}}
+F --"i=1,2,..n"--> G[fator = fator * i]
+G --LOOP--> F
+H --> I
 ```
+
 #### Pseudocódigo (2 pontos)
 
-```
-Algoritmo fatorial
-DECLARE fato, n_mult, n: Int
+```java
+ALGORITMO CalcFatorial
+DECLARE n: INTEIRO
+
 INICIO
-n_mult = 0
-ESCREVA "Digite o numero do fatorial que voce quer calcular"
-LEIA n
-ENQUANTO n < 0 FAÇA
-	ESCREVA "Digite um fatorial válido"
-	LEIA n
-FIM_ENQUANTO
-PARA n_mult DE 1 PARA n [PASSO 1] FAÇA
-	n_mult =+ 1
-	fato = fato * n_mult
-FIM_PARA
-ESCREVA "O valor do fatorial de", n, "é", fato 
-FIM_ALGORITMO
+
+    // Exibe uma mensagem solicitando ao usuário que digite um número inteiro não negativo.
+    ESCREVA "Digite um numero inteiro nao-negativo:"
+
+    // Lê o número inteiro não negativo digitado pelo usuário e armazena na variável "n".
+    LEIA n
+
+    // Verifica se o número digitado é maior ou igual a zero.
+    SE n >= 0 ENTAO
+
+        // Inicializa a variável "fator" com o valor 1 para armazenar o fatorial
+        fator <- 1
+
+        // Inicia um loop de 1 até "n" para calcular o fatorial.
+        PARA i DE 1 ATÉ n PASSO 1 FAÇA
+
+            // Calcula o fatorial multiplicando cada número até "n" pelo fatorial anterior.
+            fator <- fator * i        // fator *= i
+
+        FIM_PARA
+
+        // Exibe o resultado do fatorial calculado.
+        ESCREVA "O fatorial de, n, é:", fator
+
+    // Se o número digitado não for maior ou igual a zero, exibe uma mensagem de erro.
+    SENAO
+        ESCREVA "O valor deve ser maior ou igual a zero!"
+    FIM_SE
+
+FIM
 ```
 
-#### Teste de mesa
+#### Tabela de testes
 
-##### Chat GPT
-| Iteração | Ação                                                          | Entrada/Saída | fato | n_mult |
-|----------|---------------------------------------------------------------|---------------|------|--------|
-| -        | **Inicialização das Variáveis**                               |               | 0    | 0      |
-| -        | **Entrada do Número para o Cálculo do Fatorial**             |               |      |        |
-| 1        | Mensagem: "Digite o número do fatorial que você quer calcular"|               |      |        |
-|          | Entrada: n                                                    |               | -50  |        |
-|          |                                                               |               |      |        |
-| 2        | **Verificação da Validade do Número**                         |               |      |        |
-|          | Mensagem: "Digite um fatorial válido"                         |               |      |        |
-|          | Entrada: n                                                    |               | -50  |        |
-|          |                                                               |               |      |        |
-| -        | **Saída do Resultado**                                        |               |      |        |
-| -        | (nenhuma saída, pois o número não é válido)                   |               |      |        |
-
-| Iteração | Ação                                                          | Entrada/Saída | fato | n_mult |
-|----------|---------------------------------------------------------------|---------------|------|--------|
-| -        | **Inicialização das Variáveis**                               |               | 1    | 0      |
-| -        | **Entrada do Número para o Cálculo do Fatorial**             |               |      |        |
-| 1        | Mensagem: "Digite o número do fatorial que você quer calcular"|               |      |        |
-|          | Entrada: n                                                    |               | 1    |        |
-|          |                                                               |               |      |        |
-| 2        | **Verificação da Validade do Número**                         |               |      |        |
-|          | (nenhuma ação necessária, 0 é válido)                         |               |      |        |
-|          |                                                               |               |      |        |
-| -        | **Saída do Resultado**                                        |               |      |        |
-| -        | Mensagem: "O valor do fatorial de 0 é 1"                      |               | 1    |        |
-
-| Iteração | Ação                                                          | Entrada/Saída | fato | n_mult |
-|----------|---------------------------------------------------------------|---------------|------|--------|
-| -        | **Inicialização das Variáveis**                               |               | 1    | 0      |
-| -        | **Entrada do Número para o Cálculo do Fatorial**             |               |      |        |
-| 1        | Mensagem: "Digite o número do fatorial que você quer calcular"|               |      |        |
-|          | Entrada: n                                                    |               | 6    |        |
-|          |                                                               |               |      |        |
-| 2        | **Verificação da Validade do Número**                         |               |      |        |
-|          | (nenhuma ação necessária, 6 é válido)                         |               |      |        |
-|          |                                                               |               |      |        |
-| 3        | **Cálculo do Fatorial**                                       |               |      |        |
-|          | n_mult = 1                                                    |               |      | 1      |
-|          | fato = fato * n_mult                                          |               | 1    | 1      |
-|          |                                                               |               |      |        |
-| 4        | n_mult = 2                                                    |               |      | 2      |
-|          | fato = fato * n_mult                                          |               | 1    | 2      |
-|          |                                                               |               |      |        |
-| 5        | n_mult = 3                                                    |               |      | 3      |
-|          | fato = fato * n_mult                                          |               | 2    | 3      |
-|          |                                                               |               |      |        |
-| 6        | n_mult = 4                                                    |               |      | 4      |
-|          | fato = fato * n_mult                                          |               | 6    | 4      |
-|          |                                                               |               |      |        |
-| 7        | n_mult = 5                                                    |               |      | 5      |
-|          | fato = fato * n_mult                                          |               | 24   | 5      |
-|          |                                                               |               |      |        |
-| 8        | n_mult = 6                                                    |               |      | 6      |
-|          | fato = fato * n_mult                                          |               | 120  | 6      |
-|          |                                                               |               |      |        |
-| -        | **Saída do Resultado**                                        |               |      |        |
-| -        | Mensagem: "O valor do fatorial de 6 é 720"                    |               | 720  |        |
+| n  | fator | i  | fator = fator * i | saída               |
+| -- | --    | -- | --                | --                  |
+| 3  | 1     | 1  | 1*1 = 1           |                     |
+| 3  | 1     | 2  | 1*2 = 2           |                     |
+| 3  | 2     | 3  | 2*3 = 6           | O fatorial de 3 é 6 |
 
 ### Questão 6 - Geração da sequência de Fibonacci (2 pontos)
 
@@ -491,111 +504,66 @@ Os primeiros termos são: $0, 1, 1, 2, 3, 5, 8, 13, \dots$. Cada termo, além do
 ```mermaid
 flowchart TD
 A([INICIO]) --> B{{"Número de termos da série Fibonacci:"}}
-B --> C[a = 0]
-C --> D[b = 1]
-D --> E[[i=1 ATÉ n PASSO 1]]
-E --"i > n"--> J([FIM])
-E --"i=1,2,...,n"--> F{{a}}
-F --> G[termo_atual = a + b]
-G --> H[a = b]
-H --> I[b = termo_atual]
-I --LOOP--> E 
+B --> C[/n/]
+C --> D[a = 0]
+D --> E[b = 1]
+E --> F[[i=1 ATÉ n PASSO 1]]
+F --"i > n"--> K([FIM])
+F --"i=1,2,...,n"--> G{{a}}
+G --> H[termo_atual = a + b]
+H --> I[a = b]
+I --> J[b = termo_atual]
+J --LOOP--> F 
 ```
 
 #### Pseudocódigo (2 pontos)
 
-```
-Algoritimo fibonacci
-DECLARE T1, T2, Tmem, TS, i: Int
+```java
+ALGORITMO GeraFibonacci
+DECLARE n, a, b, termo_atual: INTEIRO
+
 INICIO
-T1 = 0
-T2 = 1
-ESCREVA "Digite qual termo de fibonacci você quer calcular"
-LEIA TS
-ENQUANTO TS <= 0 FAÇA
-	ESCREVA "Digite um termo válido"
-	LEIA TS
-FIM_ENQUANTO
-PARA i DE 1 ATÉ TS [PASSO 1] FAÇA
-	ESRCREVA T1
-	Tmem = T1 + T2
-	T1 = T2
-	T2 = Tmem
-FIM_PARA
-FIM_ALGORITIMO
+
+    // Exibe uma mensagem solicitando ao usuário que informe o número de termos da série Fibonacci.
+    ESCREVA "Número de termos da série Fibonacci:"
+
+    // Lê o número de termos da série Fibonacci informado pelo usuário e armazena na variável "n".
+    LEIA n
+
+    // Inicializa a variável "a" com o valor 0, que representa o primeiro termo da série Fibonacci.
+    a <- 0
+
+    // Inicializa a variável "b" com o valor 1, que representa o segundo termo da série Fibonacci.
+    b <- 1
+
+    // Loop que gera os termos da série Fibonacci até atingir o número de termos especificado pelo usuário.
+    PARA i DE 1 ATE n FAÇA
+
+        // Exibe o valor do termo atual da série Fibonacci.
+        ESCREVA a
+
+        // Calcula o próximo termo da série Fibonacci somando os dois últimos termos.
+        termo_atual <- a + b
+
+        // Atualiza o valor de "a" para o próximo termo da série.
+        a <- b
+
+        // Atualiza o valor de "b" para o próximo termo da série.
+        b <- termo_atual
+
+    FIM_PARA
+FIM
+
 ```
-#### Teste de mesa
+#### Tabela de testes
 
-| Iteração | Ação                                                             | Entrada/Saída | T1  | T2  | Tmem | TS |
-|----------|------------------------------------------------------------------|---------------|-----|-----|------|----|
-| -        | **Inicialização das Variáveis**                                  |               | 0   | 1   |      |    |
-| -        | **Entrada do Termo de Fibonacci a ser calculado**               |               |     |     |      | 5  |
-| 1        | Mensagem: "Digite qual termo de Fibonacci você quer calcular"   |               |     |     |      |    |
-|          | Entrada: TS                                                      |               |     |     |      | 5  |
-|          |                                                                  |               |     |     |      |    |
-| 2        | **Verificação da Validade do Número**                            |               |     |     |      |    |
-|          | (nenhuma ação necessária, 5 é válido)                           |               |     |     |      |    |
-|          |                                                                  |               |     |     |      |    |
-| 3        | **Cálculo do Termo de Fibonacci**                                |               |     |     |      |    |
-|          | PARA i DE 1 ATÉ 5 [PASSO 1] FAÇA                                 |               |     |     |      |    |
-|          |                                                                  |               |     |     |      |    |
-| 4        | i = 1                                                            |               |     |     |      |    |
-|          | Escreva: T1                                                      |               | 0   | 1   |      |    |
-|          |                                                                  |               |     |     |     |    |
-|          | Tmem = T1 + T2                                                   |               |     |     | 1     |    |
-|          | T1 = T2                                                          |               | 1   |     |      |    |
-|          | T2 = Tmem                                                        |               |     | 1   |      |    |
-|          |                                                                  |               |     |     |      |    |
-| 5        | i = 2                                                            |               |     |     |      |    |
-|          | Escreva: T1                                                      |               | 1   | 1   |      |    |
-|          |                                                                  |               |     |     |    |    |
-|          | Tmem = T1 + T2                                                   |               |     |     | 2     |    |
-|          | T1 = T2                                                          |               | 1   |     |      |    |
-|          | T2 = Tmem                                                        |               |     | 2   |      |    |
-|          |                                                                  |               |     |     |      |    |
-| 6        | i = 3                                                            |               |     |     |      |    |
-|          | Escreva: T1                                                      |               | 1   | 2   |      |    |
-|          |                                                                  |               |     |     |      |    |
-|          | Tmem = T1 + T2                                                   |               |     |     |  3    |    |
-|          | T1 = T2                                                          |               | 2   |     |      |    |
-|          | T2 = Tmem                                                        |               |     | 3   |      |    |
-|          |                                                                  |               |     |     |      |    |
-| 7        | i = 4                                                            |               |     |     |      |    |
-|          | Escreva: T1                                                      |               | 2   | 3   |      |    |
-|          |                                                                  |               |     |     |    |    |
-|          | Tmem = T1 + T2                                                   |               |     |     | 5     |    |
-|          | T1 = T2                                                          |               | 3   |     |      |    |
-|          | T2 = Tmem                                                        |               |     | 5   |      |    |
-|          |                                                                  |               |     |     |      |    |
-| 8        | i = 5                                                            |               |     |     |      |    |
-|          | Escreva: T1                                                      |               | 3   | 5   |      |    |
-|          |                                                                  |               |     |     |      |    |
-|          | Tmem = T1 + T2                                                   |               |     |     |   8   |    |
-|          | T1 = T2                                                          |               | 5   |     |      |    |
-
-| Iteração | Ação                                                             | Entrada/Saída | T1  | T2  | Tmem | TS |
-|----------|------------------------------------------------------------------|---------------|-----|-----|------|----|
-| -        | **Inicialização das Variáveis**                                  |               | 0   | 1   |      |    |
-| -        | **Entrada do Termo de Fibonacci a ser calculado**               |               |     |     |      | 0  |
-| 1        | Mensagem: "Digite qual termo de Fibonacci você quer calcular"   |               |     |     |      |    |
-|          | Entrada: TS                                                      |               |     |     |      | 0  |
-|          |                                                                  |               |     |     |      |    |
-| 2        | **Verificação da Validade do Número**                            |               |     |     |      |    |
-|          | Mensagem: "Digite um termo válido"                               |               |     |     |      |    |
-|          | (Loop de entrada será repetido até que um número válido seja dado) |             |     |     |      |    |
-|          |                                                                  |               |     |     |      |    |
-
-| Iteração | Ação                                                             | Entrada/Saída | T1  | T2  | Tmem | TS |
-|----------|------------------------------------------------------------------|---------------|-----|-----|------|----|
-| -        | **Inicialização das Variáveis**                                  |               | 0   | 1   |      |    |
-| -        | **Entrada do Termo de Fibonacci a ser calculado**               |               |     |     |      | -90|
-| 1        | Mensagem: "Digite qual termo de Fibonacci você quer calcular"   |               |     |     |      |    |
-|          | Entrada: TS                                                      |               |     |     |      | -90|
-|          |                                                                  |               |     |     |      |    |
-| 2        | **Verificação da Validade do Número**                            |               |     |     |      |    |
-|          | Mensagem: "Digite um termo válido"                               |               |     |     |      |    |
-|          | (Loop de entrada será repetido até que um número válido seja dado) |             |     |     |      |    |
-|          |                                                                  |               |     |     |      |    |
+| it | n  | a  | b  | i  | saída | termo_atual = a + b | a = b | b = termo_atual |
+| -- | -- | -- | -- | -- | --    | --                  | --    | --              |
+| 1  | 5  | 0  | 1  | 1  | 0     | 0 + 1 = 1           | 1     | 1               |
+| 2  | 5  | 1  | 1  | 2  | 1     | 1 + 1 = 2           | 1     | 2               |
+| 3  | 5  | 1  | 2  | 3  | 1     | 1 + 2 = 3           | 2     | 3               |
+| 4  | 5  | 2  | 3  | 4  | 2     | 2 + 3 = 5           | 3     | 5               |
+| 4  | 5  | 3  | 5  | 5  | 3     | 3 + 5 = 8           | 5     | 8               |
 
 ### Questão 7 - Inversão dos dígitos de um número inteiro (2 pontos)
 
@@ -624,7 +592,7 @@ H --FALSE--> Z{{"Número invertido:", numero_inv}}
 Z --> W([FIM])
 H --TRUE--> I[digito = num % 10]
 I --> J[num_inv = num_inv * 10 + digito]
-J --> K[numero = numero // 10]
+J --> K[num = num // 10]
 K --LOOP--> H
 D --FALSE--> E{{O número deve ser positivo!}}
 E --> W
@@ -632,56 +600,55 @@ E --> W
 
 #### Pseudocódigo (2 pontos)
 
-```
-Algoritimo Inver
-DECLARE Num, Num_inv, mem, mem2: Int
+```java
+Algoritmo InverteInteiro
+DECLARE num, num_inv, digito: INTEIRO
+
 INICIO
-ESCREVA "Digite o número que voce quer inverter"
-LEIA Num
-mem2 = Num
-ENQUANTO Num <= 9 FAÇA
-	ESCREVA "O número precisa ser positivo e ter mais de dois algarismos"
-	ESCREVA "Digite o número que voce quer inverter"
-FIM_ENQUANTO
-ENQUANTO Num > 0 FAÇA
-	mem = Num % 10
-        Num =// 10
-	Num_inv =* 10
-	Num_inv =+ mem
-FIM_ENQUANTO
-ESCREVA "O número", mem2, "após inverter os algarismos é", Num_inv
-FIM_ALGORITIMO 
+
+    // Exibe uma mensagem solicitando ao usuário que digite o número a ser invertido.
+    ESCREVA "Digite o número a ser invertido:"
+    // Lê o número informado pelo usuário e armazena na variável "num".
+    LEIA num
+
+    // Verifica se o número é negativo.
+    SE num < 0 ENTAO
+
+        // Se o número for negativo, exibe uma mensagem informando que o número deve ser positivo.
+        ESCREVA "O número deve ser positivo!"
+
+    // Caso o número seja positivo.
+    SENAO
+
+        // Inicializa a variável "num_inv" com o valor 0 para armazenar o número invertido.
+        num_inv <- 0
+
+        // Loop que inverte o número.
+        ENQUANTO num > 0 FAÇA
+
+            //  Obtém o último dígito do número original (num) usando o operador de módulo "%".
+            digito <- num % 10
+
+            // Adiciona o último dígito ao número invertido (num_inv) multiplicando-o por 10 para posicionar o dígito corretamente.
+            num_inv <- (num_inv * 10) + digito
+
+            // Remove o último dígito do número original, dividindo-o por 10.
+            num <- num // 10
+
+        // Exibe o número invertido.
+        ESCREVA "Número invertido:", num_inv
+
+    FIM_SE
+
+FIM
 ```
 
-#### Teste de mesa
-##### Chat GPT
+#### Tabela de testes
 
-| Iteração | Ação                                      | Entrada/Saída | Num    | Num_inv | mem  |
-|----------|-------------------------------------------|----------------|--------|---------|------|
-| -        | **Inicialização**                         |                | 12345  | 0       | -    |
-| 1        | Leitura do número a ser invertido         |                | 12345  | 0       | -    |
-| -        | Verificação da validade do número         |                | 12345  | 0       | -    |
-| -        | (Número válido)                            |                | 12345  | 0       | -    |
-| 2        | Início do loop de inversão                |                | 12345  | 0       | -    |
-| 2.1      | Cálculo do resto da divisão por 10 (mem)  |                | 12345  | 0       | 5    |
-| 2.2      | Atualização do número (Num //= 10)        |                | 1234   | 0       | 5    |
-| 2.3      | Multiplicação e adição (Num_inv)          |                | 1234   | 5       | 5    |
-| 3        | Próxima iteração                          |                | 1234   | 5       | -    |
-| 3.1      | Cálculo do resto da divisão por 10 (mem)  |                | 1234   | 5       | 4    |
-| 3.2      | Atualização do número (Num //= 10)        |                | 123    | 5       | 4    |
-| 3.3      | Multiplicação e adição (Num_inv)          |                | 123    | 54      | 4    |
-| 4        | Próxima iteração                          |                | 123    | 54      | -    |
-| 4.1      | Cálculo do resto da divisão por 10 (mem)  |                | 123    | 54      | 3    |
-| 4.2      | Atualização do número (Num //= 10)        |                | 12     | 54      | 3    |
-| 4.3      | Multiplicação e adição (Num_inv)          |                | 12     | 543     | 3    |
-| 5        | Próxima iteração                          |                | 12     | 543     | -    |
-| 5.1      | Cálculo do resto da divisão por 10 (mem)  |                | 12     | 543     | 2    |
-| 5.2      | Atualização do número (Num //= 10)        |                | 1      | 543     | 2    |
-| 5.3      | Multiplicação e adição (Num_inv)          |                | 1      | 5432    | 2    |
-| 6        | Próxima iteração                          |                | 1      | 5432    | -    |
-| 6.1      | Cálculo do resto da divisão por 10 (mem)  |                | 1      | 5432    | 1    |
-| 6.2      | Atualização do número (Num //= 10)        |                | 0      | 5432    | 1    |
-| 6.3      | Multiplicação e adição (Num_inv)          |                | 0      | 54321   | 1    |
-| 7        | Próxima iteração                          |                | 0      | 54321   | -    |
-| 7.1      | (Condição de saída do loop)               |                | 0      | 54321   | -    |
-| -        | **Saída do Resultado**                    | O número 12345 após inverter os algarismos é 54321| 0      | 54321   | -    |
+| it | num | num_inv | num > 0 | digito | num = num // 10 | num_inv = (num_inv * 10) + digito | Saída                        |
+| -- | --  | --      | --     | --      | --              | --                                | --                           |
+|    | -1  | 0       | False  |         |                 |                                   | O número deve ser positivo!  |
+| 1  | 0   | 0       | False  |         |                 |                                   | Número invertido:: 0         |
+| 1  | 42  | 0       | True   | 2       | 4               | 2                                 |                              |
+| 2  | 4   | 2       | True   | 4       | 0               | 24                                |                              |
+| 3  | 0   | 24      | False  |         |                 |                                   | Número invertido:: 24        |
