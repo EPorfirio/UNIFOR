@@ -249,7 +249,7 @@ INICIO
             // Exibe a operação de soma e o resultado.
             ESCREVA num1, "+", num2, "=", res
 
-        // Exibe a operação de soma e o resultado.
+        // Caso a operação escolhida seja subtração.
         CASO op == 2
 
             // Calcula a subtração dos números e armazena o resultado na variável "res"
